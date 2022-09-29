@@ -1,0 +1,16 @@
+nano variables.json.examples
+{
+  "platform_type": "DONT MAKE HERE PLATFORM TYPE. WILL NOT WORK",
+  "service_account_key_file": "examples",
+  "image_labels": "examples",
+  "zone": "examples",
+  "folder_id": "examples",
+  "image_name": "reddit-base-{{timestamp}}",
+  "source_image_family": "ubuntu-1804-lts",
+  "image_family": "reddit-base",
+  "ssh_username": "ubuntu",
+  "platform_id": "standard-v1",
+  "use_ipv4_nat": "true",
+  "ruby": "/var/www/peter91peter91_infra/config-scripts/install_ruby.sh",
+  "mongo": "/var/www/peter91peter91_infra/config-scripts/install_mongodb.sh"
+}
