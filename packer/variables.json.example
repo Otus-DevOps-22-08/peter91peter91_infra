@@ -1,4 +1,3 @@
-nano variables.json.example
 {
   "platform_type": "DONT MAKE HERE PLATFORM TYPE. WILL NOT WORK",
   "service_account_key_file": "key.json",
