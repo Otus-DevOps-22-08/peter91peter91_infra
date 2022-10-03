@@ -1,55 +1,18 @@
 # peter91peter91_infra
+# QUEST №4
 
-LESSON_5
+testapp_IP = 51.250.7.56
+testapp_port = 9292
 
+#Дополнительное задание В качестве доп. задания используйте созданные ранее
+#скрипты для создания , который будет запускаться при создании инстанса.
+#metadata.yml содержит весь код по развертыванию приложения
 
-
-bastion_IP = 178.154.203.97
-
-someinternalhost_IP = 10.128.0.30
-
-
-
-задание способ подключения к someinternalhost.
-
-1)подключение в одну команду
-
-ssh <user_name>@<Внутренний IPv4 целевого ресурса> -o "proxycommand ssh -W %h:%p -i ~/.ssh/id_rsa <user_name>@<Публичный IPv4 бастиона>"
-
-либо через ssh -J
-
-//////////////////////////////////////////////
-
-2)подключение по алиасу:
-
-пишем в консоли
-
-nano ~/.ssh/config
-
-// и заполняем
-
-Host someinternalhost
-
-HostName 10.128.0.30
-
-User appuser
-
-IdentityFile ~/.ssh/id_rsa
-
-Port 22
-
-StrictHostKeyChecking no
-
-//
-
-Заходим на бастион и вводим
-
-ssh someinternalhost
-
-
-
-
-
-OPENVPN осуществлено при помощи докера pritunl
-
-//////////////////////////////////////////////
+yc compute instance create `
+--name reddit-app `
+--hostname reddit-app `
+--memory=4 `
+--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB `
+--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 `
+--metadata serial-port-enable=1 `
+--metadata-from-file .\user-data=metadata.yml
