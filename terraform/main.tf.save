@@ -1,0 +1,50 @@
+provider "yandex" {  token     = "y0_AgAAAABkmtenAATuwQAAAADPhIeAZyx-oW63Q3SLZrCj1F4U-R1TlMI"
+  cloud_id  = "b1g7pg7fog7k5v9lqh2j"
+  folder_id = "b1gl0ur70v6b2cqcn4aa"
+  zone      = "ru-central1-a"
+}
+
+resource "yandex_compute_instance" "app" {
+  name = "reddit-app"
+
+  resources {
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      # Указать id образа созданного в предыдущем домашем задании
+      image_id = "fd8m9ts3lvic8r2l7ffq"
+    }
+  }
+
+  network_interface {
+    # Указан id подсети default-ru-central1-a
+    subnet_id = "e9b8lj33a9gnkst3o7ha"
+    nat       = true
+  }
+
+  metadata = {
+  ssh-keys = "ubuntu:${file("~/.ssh/yc.pub")}"
+  }
+
+  provisioner "file" {
+    source = "files/puma.service"
+    destination = "/tmp/puma.service"
+  }
+  
+  provisioner "remote-exec" {
+    script = "files/deploy.sh"
+  }
+
+connection {
+  type = "ssh"
+  host = yandex_compute_instance.app.network_interface.0.nat_ip_address
+  user = "ubuntu"
+  agent = false
+  # путь до приватного ключа
+  private_key = file("~/.ssh/yc")
+  }
+
+}
