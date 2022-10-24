@@ -14,9 +14,9 @@ resource "yandex_compute_instance" "app" {
   zone = var.zone
 
   resources {
-    cores         = 4
-    core_fraction = 100
-    memory        = 4
+    cores         = 2
+    core_fraction = 20
+    memory        = 2
   }
 
 
@@ -54,15 +54,4 @@ resource "yandex_compute_instance" "app" {
   provisioner "remote-exec" {
     script = "files/deploy.sh"
   }
-}
-
-resource "yandex_vpc_network" "app-network" {
-  name = "reddit-app-network"
-}
-
-resource "yandex_vpc_subnet" "app-subnet" {
-  name           = "reddit-app-subnet"
-  zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.app-network.id}"
-  v4_cidr_blocks = ["192.168.10.0/24"]
 }
