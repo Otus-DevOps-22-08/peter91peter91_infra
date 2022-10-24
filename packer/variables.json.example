@@ -5,7 +5,7 @@
   "zone": "ru-central1-a",
   "folder_id": "examples",
   "image_name": "reddit-base-{{timestamp}}",
-  "source_image_family": "ubuntu-1804-lts",
+  "source_image_family": "ubuntu-1604-lts",
   "image_family": "reddit-base",
   "ssh_username": "ubuntu",
   "platform_id": "standard-v1",
