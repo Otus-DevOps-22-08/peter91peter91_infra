@@ -6,7 +6,7 @@
             "folder_id": "{{user `folder_id`}}",
             "source_image_family": "{{user `source_image_family`}}",
             "image_name": "reddit-base-{{timestamp}}",
-            "image_family": "reddit-base",
+            "image_family": "reddit-full",
             "ssh_username": "ubuntu",
             "platform_id": "standard-v1",
             "use_ipv4_nat": true
@@ -22,6 +22,23 @@
             "type": "shell",
             "script": "scripts/install_mongodb.sh",
             "execute_command": "sudo {{.Path}}"
-        }
+        },
+        {
+            "type": "shell",
+            "script": "files/install_app.sh",
+            "execute_command": "sudo {{.Path}}"
+          },
+          {
+            "type": "file",
+            "source": "files/puma.service",
+            "destination": "/tmp/puma.service"
+          },
+          {
+            "type": "shell",
+            "inline": [
+              "sudo mv /tmp/puma.service /etc/systemd/system/puma.service",
+              "sudo systemctl daemon-reload && sudo systemctl enable puma && sudo systemctl start puma"
+            ]
+          }
     ]
 }
