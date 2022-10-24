@@ -1,0 +1,11 @@
+[Unit]
+Description=Puma Rails Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/reddit
+ExecStart=/usr/local/bin/puma
+
+[Install]
+WantedBy=multi-user.target
