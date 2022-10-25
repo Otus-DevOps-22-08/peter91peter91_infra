@@ -1,9 +1,0 @@
-cloud_id                 = "ExampleCloudID"
-folder_id                = "ExampleFolderID"
-zone                     = "ru-central1-a"
-image_id                 = "ExampleImageID"
-public_key_path          = "~/.ssh/yc.pub"
-private_key_path         = "~/.ssh/yc"
-subnet_id                = "ExampleSubnetID"
-service_account_key_file = "/var/www/ServiceAccountDirWithKey/key.json"
-apps_count = 2
