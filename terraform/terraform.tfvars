@@ -1,0 +1,10 @@
+cloud_id                 = "b1g7pg7fog7k5v9lqh2j"
+folder_id                = "b1gl0ur70v6b2cqcn4aa"
+zone                     = "ru-central1-a"
+image_id                 = "fd8vp42ofrdekrpaiu3h"
+public_key_path          = "~/.ssh/yc.pub"
+private_key_path         = "~/.ssh/yc"
+subnet_id                = "e9b8lj33a9gnkst3o7ha"
+service_account_key_file = "/var/www/ServiceAccountDirWithKey/key.json"
+#apps_count               = 1
+apps_count               = 2
