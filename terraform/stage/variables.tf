@@ -1,8 +1,10 @@
 variable "zone" {
   type = string
+  default = "ru-central1-a"
 }
 
 variable "zone_app" {
+  type = string
   description = "Zone app"
   # Значение по умолчанию
   default = "ru-central1-a"
