@@ -6,4 +6,14 @@ public_key_path          = "~/.ssh/yc.pub"
 private_key_path         = "~/.ssh/yc"
 subnet_id                = "ExampleSubnetID"
 service_account_key_file = "/var/www/ServiceAccountDirWithKey/key.json"
-apps_count = 2
+app_disk_image           = "reddit-app-base"
+db_disk_image            = "reddit-db-base"
+
+
+#prov = true
+#instances                = 1
+
+
+#access_key               = "2341432434"
+#secret_key               = "3214343241324"
+#bucket_name = "storage-backet-moiseevpa"
