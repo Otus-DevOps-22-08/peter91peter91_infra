@@ -1,19 +1,9 @@
-cloud_id                 = "ExampleCloudID"
-folder_id                = "ExampleFolderID"
-zone                     = "ru-central1-a"
-image_id                 = "ExampleImageID"
-public_key_path          = "~/.ssh/yc.pub"
-private_key_path         = "~/.ssh/yc"
-subnet_id                = "ExampleSubnetID"
-service_account_key_file = "/var/www/ServiceAccountDirWithKey/key.json"
-app_disk_image           = "reddit-app-base"
-db_disk_image            = "reddit-db-base"
-
-
-#prov = true
-#instances                = 1
-
-
-#access_key               = "2341432434"
-#secret_key               = "3214343241324"
-#bucket_name = "storage-backet-moiseevpa"
+zone = "ru-central1-a"
+zone_app = "ru-central1-a"
+service_account_key_file = "key.json"
+cloud_id = "cloud_id_xxxxxxxx"
+folder_id = "folder_id_xxxxxx"
+subnet_id = "subnet_id_xxxxxx"
+image_id = "xxxxxxxxxxxxxxxxxx"
+ssh_keys = "ssh-rsa XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX= ubuntu"
+private_key = "ubuntu"
