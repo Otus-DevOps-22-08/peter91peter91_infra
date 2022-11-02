@@ -1,10 +1,11 @@
 #!/bin/bash
-set -e
+trap 'do_something' ERR
 APP_DIR=${1:-$HOME}
-#sudo dpkg --configure -a
-sudo apt update
-sleep 30
-sudo apt install -y git
+  until sudo apt-get -y update && sudo apt-get install -y git
+    do
+      echo "Try again"
+    sleep 2
+    done
 git clone -b monolith https://github.com/express42/reddit.git $APP_DIR/reddit
 cd $APP_DIR/reddit
 bundle install

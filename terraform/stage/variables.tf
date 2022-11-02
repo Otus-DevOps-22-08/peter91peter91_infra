@@ -1,13 +1,13 @@
 variable "zone" {
   type = string
-}
-
-variable "yandex" {
-  type = string
+  default = "ru-central1-a"
 }
 
 variable "zone_app" {
   type = string
+  description = "Zone app"
+  # Значение по умолчанию
+  default = "ru-central1-a"
 }
 
 variable "cloud_id" {
@@ -33,14 +33,6 @@ variable "image_id" {
   type = string
 }
 
-variable "ssh_keys" {
-  type = string
-}
-
-variable "private_key" {
-  type = string
-}
-
 variable "app_disk_image" {
   description = "Disk image for reddit app"
   default     = "reddit-app-base"
@@ -54,3 +46,8 @@ variable "db_disk_image" {
 variable "public_key_path" {
   type = string
 }
+
+variable "private_key_path" {
+  type = string
+}
+
