@@ -1,0 +1,20 @@
+---
+plugin: yc_compute
+folders:
+  - YourFolderId
+filters:
+  - status == 'RUNNING'
+auth_kind: serviceaccountfile
+service_account_file: /path/to/your/key.json
+hostnames:
+  - fqdn
+compose:
+  ansible_host: network_interfaces[0].primary_v4_address.one_to_one_nat.address
+# keyed_groups:
+#   # Place hosts in groups named by tag.
+#   - key: labels['tags']
+#     prefix: ''
+#     separator: ''
+groups:
+   app: labels['tags'] == 'reddit-app'
+   db: labels['tags'] == 'reddit-db'

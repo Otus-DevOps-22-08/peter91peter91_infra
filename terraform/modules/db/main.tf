@@ -25,19 +25,19 @@ resource "yandex_compute_instance" "db" {
   ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
 
-  connection {
-    type  = "ssh"
-    host  = yandex_compute_instance.db.network_interface[0].nat_ip_address
-    user  = "ubuntu"
-    agent = false
-    private_key = file(var.private_key_path)
-  }
+#  connection {
+#    type  = "ssh"
+#    host  = yandex_compute_instance.db.network_interface[0].nat_ip_address
+#    user  = "ubuntu"
+#    agent = false
+#    private_key = file(var.private_key_path)
+#  }
 
-  provisioner "file" {
-    content     = templatefile("${path.module}/files/mongod.conf", { db_url = yandex_compute_instance.db.network_interface.0.ip_address})
-    destination = "/tmp/mongod.conf"
-  }
-  provisioner "remote-exec" {
-    script = "${path.module}/files/deploy.sh"
-  }
+#  provisioner "file" {
+#    content     = templatefile("${path.module}/files/mongod.conf", { db_url = yandex_compute_instance.db.network_interface.0.ip_address})
+#    destination = "/tmp/mongod.conf"
+#  }
+#  provisioner "remote-exec" {
+#    script = "${path.module}/files/deploy.sh"
+#  }
 }
