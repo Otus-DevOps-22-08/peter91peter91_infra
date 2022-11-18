@@ -1,12 +1,15 @@
+# secrets for Packer
 variables.json
-/var/www/ServiceAccountDirWithKey/key.json
+key.json
 
+# some Terraform stuff
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
-*.terraform/
-
+.terraform/
+.terraform.lock.hcl
+reqprovider.tf
 
 # some Ansible staff
 *.retry
