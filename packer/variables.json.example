@@ -1,5 +1,4 @@
 {
-  "platform_type": "DONT MAKE HERE PLATFORM TYPE. WILL NOT WORK",
   "service_account_key_file": "packer/key.json.example",
   "image_labels": "image:label",
   "zone": "ru-central1-a",
@@ -11,7 +10,7 @@
   "platform_id": "standard-v1",
   "use_ipv4_nat": "true",
   "ruby": "./scripts/install_ruby.sh",
-  "mongo": "./scripts/install_mongodb.sh"
+  "mongo": "./scripts/install_mongodb.sh",
   "instance_cores": "2",
   "instance_mem_gb": "2",
   "subnet_id": "your_subnet_id"
