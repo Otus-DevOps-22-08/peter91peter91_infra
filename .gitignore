@@ -16,3 +16,4 @@ reqprovider.tf
 yc_compute.yml
 __pycache__/
 *.pyc
+tmp/
