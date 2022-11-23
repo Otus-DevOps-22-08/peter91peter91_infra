@@ -1,0 +1,12 @@
+# db_host: 10.128.0.21    # use 'internal_ip_address_db' for static inventory
+# db_host: "{{ hostvars['dbserver']['ansible_all_ipv4_addresses'][0] }}"    # use for ./yc-inventory.py
+db_host: "{{ hostvars['reddit-db.internal']['ansible_all_ipv4_addresses'][0] }}" # use for./yc_compute.yml
+
+nginx_sites:
+  default:
+    - listen 80
+    - server_name "reddit-app.local"
+    - location /
+      {
+        proxy_pass http://127.0.0.1:9292;
+      }

@@ -1,0 +1,9 @@
+---
+- name: Configure App
+  hosts: app
+  gather_facts: yes
+  become: true
+
+  roles:
+    - app
+    - jdauphant.nginx
