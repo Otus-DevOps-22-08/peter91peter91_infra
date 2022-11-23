@@ -1,6 +1,6 @@
 # db_host: 10.128.0.21    # use 'internal_ip_address_db' for static inventory
 # db_host: "{{ hostvars['dbserver']['ansible_all_ipv4_addresses'][0] }}"    # use for ./yc-inventory.py
-db_host: "{{ hostvars['reddit-db.internal']['ansible_all_ipv4_addresses'][0] }}" # use for./yc_compute.yml
+db_host: "{{ hostvars['fhmj4ii1spl42u62r3nm.auto.internal']['ansible_all_ipv4_addresses'][0] }}" # use for./yc_compute.yml
 
 nginx_sites:
   default:
