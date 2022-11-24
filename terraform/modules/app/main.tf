@@ -1,12 +1,14 @@
 resource "yandex_compute_instance" "app" {
-  name = "reddit-app"
+  name     = "reddit-app"
+  hostname = "reddit-app.internal"
 
   labels = {
     tags = "reddit-app"
   }
   resources {
-    cores  = 2
-    memory = 2
+    cores         = 2
+    core_fraction = 20
+    memory        = 2
   }
 
   boot_disk {
