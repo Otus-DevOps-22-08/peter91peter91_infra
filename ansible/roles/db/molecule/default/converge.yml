@@ -1,0 +1,10 @@
+---
+- name: Converge
+  become: true
+  vars:
+    mongo_bind_ip: 0.0.0.0
+  hosts: all
+  tasks:
+    - name: "Include acme.db"
+      include_role:
+        name: "acme.db"
