@@ -1,4 +1,3 @@
-
 # Copyright (c) 2019 Ansible Project
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
@@ -94,10 +93,12 @@ hostnames:
   - fqdn  # Use FQDN for inventory hostnames.
 # You can also format hostnames with jinja2 expressions like this
 # - "{{id}}_{{name}}"
+
 compose:
   # Set ansible_host to the Public IP address to connect to the host.
   # For Private IP use "network_interfaces[0].primary_v4_address.address".
   ansible_host: network_interfaces[0].primary_v4_address.one_to_one_nat.address
+
 keyed_groups:
   # Place hosts in groups named by folder_id.
   - key: folder_id
@@ -105,6 +106,7 @@ keyed_groups:
     separator: ''
   # Place hosts in groups named by value of labels['group'].
   - key: labels['group']
+
 groups:
   # Place hosts in 'ssd' group if they have appropriate disk_type label.
   ssd: labels['disk_type'] == 'ssd'

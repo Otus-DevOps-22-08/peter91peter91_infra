@@ -1,1 +1,0 @@
-{"_meta": {"hostvars": {"appserver": {"ansible_host": "158.160.42.142"}, "dbserver": {"ansible_host": "158.160.36.89"}, "vm-debian-moiseevserver": {"ansible_host": "62.84.112.56"}}}, "app": {"hosts": ["appserver"]}, "db": {"hosts": ["dbserver"]}, "vm-debian-moiseev": {"hosts": ["vm-debian-moiseevserver"]}}

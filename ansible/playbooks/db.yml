@@ -1,0 +1,8 @@
+---
+- name: Configure MongoDB
+  hosts: db
+  gather_facts: yes
+  become: true
+
+  roles:
+    - db
