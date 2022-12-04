@@ -2,22 +2,23 @@
     "builders": [
         {
             "type": "yandex",
-            "service_account_key_file": "{{user `service_account_key_file`}}",
-            "folder_id": "{{user `folder_id`}}",
-            "source_image_family": "{{user `source_image_family`}}",
-            "image_name": "{{user `image_name`}}",
-            "image_family": "{{user `image_family`}}",
-            "ssh_username": "{{user `ssh_username`}}",
-            "platform_id": "{{user `platform_id`}}",
-            "use_ipv4_nat": "{{user `use_ipv4_nat`}}"
+            "service_account_key_file": "{{ user `service_account_key_file` }}",
+            "folder_id": "{{ user `folder_id` }}",
+            "source_image_family": "{{ user `source_image_family` }}",
+            "image_name": "reddit-app-ansible-{{timestamp}}",
+            "image_family": "reddit-base",
+            "instance_cores": "{{ user `instance_cores` }}",
+            "instance_mem_gb": "{{ user `instance_mem_gb` }}",
+            "ssh_username": "ubuntu",
+            "platform_id": "standard-v1",
+            "subnet_id": "{{ user `subnet_id` }}",
+            "use_ipv4_nat": "true"
         }
     ],
     "provisioners": [
         {
-            "type": "shell",
-            "script": "{{user `ruby`}}",
-            "execute_command": "sudo {{.Path}}"
+            "type": "ansible",
+            "playbook_file": "ansible/packer_app.yml"
         }
-    ],
-    "sensitive-variables": ["folder_id", "service_account_key_file"]
+    ]
 }
